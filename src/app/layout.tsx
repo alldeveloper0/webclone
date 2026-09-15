@@ -1,20 +1,47 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const nexoFont = localFont({
+  variable: "--font-nexo",
+  src: [
+    {
+      path: "../../public/sites/nexo.com-aa72f0e4/shared/fonts/NexoRegular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/nexo.com-aa72f0e4/shared/fonts/NexoRegularItalic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/sites/nexo.com-aa72f0e4/shared/fonts/NexoMedium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/nexo.com-aa72f0e4/shared/fonts/NexoMediumItalic.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../../public/sites/nexo.com-aa72f0e4/shared/fonts/NexoBold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/nexo.com-aa72f0e4/shared/fonts/NexoBoldItalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Nexo: Your Wealth Platform for Digital Assets",
+  description:
+    "Earn, borrow, and spend crypto. All in one place. Access the premier wealth platform built to grow your crypto.",
 };
 
 export default function RootLayout({
@@ -23,10 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${nexoFont.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
